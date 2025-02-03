@@ -59,36 +59,73 @@ class LinkedList
     @count -= 1    
   end
   def contains?(value)
-    p current_node = @head
-    p current_value = current_node.value
+    current_node = @head
+    tof = false
     while current_node.next_node != nil
       current_node = current_node.next_node
+      if current_node.value == value
+        tof = true
+      end
+      
     end
-
+    tof
+  end
+  def find(value)
+    if self.contains?(value)
+      current_node = @head
+      count = 0 
+      while current_node.next_node != nil
+        count += 1
+        current_node = current_node.next_node
+        if current_node.value == value
+          count
+        end
+      end
+      count
+    else
+      nil   
+    end 
+  end
+  def to_s
+    current_node = @head
+    while current_node != nil
+      if current_node.next_node != nil
+        print "( #{current_node.value} ) -> " # if we use PUTS it will jump a line on to_s method
+      else
+        print "( #{current_node.value} ) -> " # if we use PUTS it will jump a line on to_s method
+      end
+      current_node = current_node.next_node
+    end
   end
 end
 
  link = LinkedList.new(2)
- link.append('5')
+#  link.append('5')
  link.append('54')
  link.append('52')
-#  link.prepend('4')
-#  link.prepend('4')
-#  link.prepend('4')
-#  link.prepend('4')
+ link.prepend('4')
+ link.prepend('4')
+ link.prepend('4')
+ link.prepend('4')
  link.append('52')
-#  p link.size
+ p link.size
 
-#  p link.head
+ p link.head
 
-# p link.tail
-# p link.count
-# p link.tail
-# p link.at(4)
+p link.tail
+p link.count
+p link.tail
+p link.at(4)
 
-# p link.pop  
-# p link.pop  
-# p link.append('23')
+p link.pop  
+p link.pop  
+p link.append('23')
 
-# p link
-p link.contains?(5)
+p link
+
+
+# p link.find(10)
+link.append('ahoy cachorro')
+p link.to_s
+
+# link.append('ahoy cachorro')
