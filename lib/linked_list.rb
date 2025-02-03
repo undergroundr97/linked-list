@@ -97,6 +97,18 @@ class LinkedList
       current_node = current_node.next_node
     end
   end
+  ## extra credit TOP
+  def insert_at(index, value)
+    current_node = @head
+    to_find = 0
+    while to_find != index
+       current_node = current_node.next_node
+      to_find+= 1
+    end
+    current_node.next_node = Node.new(current_node.value, current_node.next_node)
+    current_node.value = Node.new(value, current_node.next_node.next_node).value
+    @count += 1
+  end
 end
 
  link = LinkedList.new(2)
@@ -108,24 +120,27 @@ end
  link.prepend('4')
  link.prepend('4')
  link.append('52')
- p link.size
+  link.size
 
- p link.head
+  link.head
 
-p link.tail
-p link.count
-p link.tail
-p link.at(4)
+ link.tail
+ link.count
+ link.tail
+ link.at(4)
 
-p link.pop  
-p link.pop  
-p link.append('23')
+ link.pop  
+ link.pop  
+ link.append('23')
 
-p link
+ link
 
 
 # p link.find(10)
 link.append('ahoy cachorro')
-p link.to_s
+p link.size
+link.insert_at(1, 'val')
+p link.size
+puts link
 
 # link.append('ahoy cachorro')
