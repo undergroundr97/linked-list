@@ -90,15 +90,18 @@ class LinkedList
     current_node = @head
     while current_node != nil
       if current_node.next_node != nil
-        print "( #{current_node.value} ) -> " # if we use PUTS it will jump a line on to_s method
-      else
-        print "( #{current_node.value} ) -> " # if we use PUTS it will jump a line on to_s method
+      print "( #{current_node.value } ) -> "
+      elsif current_node.next_node == nil
+        print "( #{current_node.value} ) -> "
       end
       current_node = current_node.next_node
     end
   end
   ## extra credit TOP
   def insert_at(index, value)
+    if index > @count - 1 
+      raise 'Cannot add item higher than index value'
+    else
     current_node = @head
     to_find = 0
     while to_find != index
@@ -106,8 +109,9 @@ class LinkedList
       to_find+= 1
     end
     current_node.next_node = Node.new(current_node.value, current_node.next_node)
-    current_node.value = Node.new(value, current_node.next_node.next_node).value
+    current_node.value = Node.new(value, current_node.next_node).value
     @count += 1
+    end
   end
 end
 
@@ -137,10 +141,12 @@ end
 
 
 # p link.find(10)
-link.append('ahoy cachorro')
+link.append('ahoy')
 p link.size
-link.insert_at(1, 'val')
+link.insert_at(5, 'val')
 p link.size
+# puts link
+# puts link.to_s
 puts link
 
 # link.append('ahoy cachorro')
