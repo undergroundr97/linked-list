@@ -88,14 +88,13 @@ class LinkedList
   end
   def to_s
     current_node = @head
+    string_output = ""
     while current_node != nil
-      if current_node.next_node != nil
-      print "( #{current_node.value } ) -> "
-      elsif current_node.next_node == nil
-        print "( #{current_node.value} ) -> "
-      end
+      string_output += "( #{current_node.value } ) -> "
       current_node = current_node.next_node
     end
+      string_output += 'nil'
+      string_output
   end
   ## extra credit TOP
   def insert_at(index, value)
@@ -115,38 +114,3 @@ class LinkedList
   end
 end
 
- link = LinkedList.new(2)
-#  link.append('5')
- link.append('54')
- link.append('52')
- link.prepend('4')
- link.prepend('4')
- link.prepend('4')
- link.prepend('4')
- link.append('52')
-  link.size
-
-  link.head
-
- link.tail
- link.count
- link.tail
- link.at(4)
-
- link.pop  
- link.pop  
- link.append('23')
-
- link
-
-
-# p link.find(10)
-link.append('ahoy')
-p link.size
-link.insert_at(5, 'val')
-p link.size
-# puts link
-# puts link.to_s
-puts link
-
-# link.append('ahoy cachorro')
